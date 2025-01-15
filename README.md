@@ -28,9 +28,9 @@
 Follow these steps to set up and run the project locally:
 
 ### 1. Clone the Repository
-    git clone https://github.com/yourusername/document-summary-assistant.git
+    git clone https://github.com/bibekkd/summary-app.git
     
-    cd document-summary-assistant
+    cd summary-app
     
 
 ### 2. Create a Virtual Environment

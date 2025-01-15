@@ -5,12 +5,25 @@ import streamlit as st
 
 load_dotenv()
 
-genai.configure(api_key=st.secrets["API_KEY"])
+def get_api_key():
+    try:
+        return st.secrets["API_KEY"]
+    except KeyError:
+        api_key = os.getenv('GEMINI_API_KEY')
+        if api_key:
+            return api_key
+        else:
+            st.error("No API key found. Please set the API key in .streamlit/secrets.toml or as an environment variable 'GEMINI_API_KEY'")
+            st.stop()
+
+
+api_key = get_api_key()
+
+genai.configure(api_key=api_key)
 
 model = genai.GenerativeModel("gemini-1.5-flash")
 
 def generate_summary(text, length):
-    # Map summary length to prompt style
     length_map = {
         "Short": "Provide a concise summary of the following text.",
         "Medium": "Provide a detailed summary of the following text.",
@@ -65,8 +78,7 @@ def generate_summary(text, length):
             {text}
     """
     try:
-        # Generate content using the Gemini model
         response = model.generate_content([prompt])
-        return response.text  # Extract the text from the response
+        return response.text  
     except Exception as e:
         return f"Error generating summary: {str(e)}"

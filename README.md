@@ -24,6 +24,8 @@
 ---
 ## 🚀 Getting Started
 
+Check out the live app here: https://ai-smart-summary.streamlit.app/
+
 
 Follow these steps to set up and run the project locally:
 

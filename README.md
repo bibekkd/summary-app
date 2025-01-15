@@ -55,14 +55,20 @@ Start the Streamlit app:
     streamlit run app.py
 
 ### 📁 File Structure
-    document_summary_assistant/
+  
+    summary_app/
     ├── app.py                 # Main Streamlit app
     ├── requirements.txt       # Python dependencies
+    ├── .env                   # Environment variables (e.g., API keys)
     ├── utils/
     │   ├── file_upload.py     # File upload handling
     │   ├── text_extraction.py # PDF and OCR text extraction logic
     │   └── summarize.py       # AI-powered summarization logic
     └── assets/                # Static files (optional)
+
+
+You can now include sensitive information like API keys in the `.env` file for better security and management. Make sure to add `.env` to your `.gitignore` if the repository is public.
+
 
 ## 🔧 Tech Stack
 
